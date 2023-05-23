@@ -1,0 +1,21 @@
+version: 0.2
+
+env:
+ variables:
+   TF_VERSION: "1.4.2"
+#    key: "value"
+
+phases:
+  pre_build:
+    commands:
+      - terraform init
+      - terraform plan
+      - terraform validate
+
+  build:
+    commands:
+     - terraform apply
+          
+  post_build:
+    commands:
+      - echo "Nothing to do in the post_build for now"
